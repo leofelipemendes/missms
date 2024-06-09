@@ -36,6 +36,9 @@ class EmpresaController extends Controller
     public function getById($empresaId)
     {
         $empresa = $this->service->getById($empresaId);
+        if (!$empresa) {
+            return ApiResponseClass::sendResponse($empresaId,'Erro ao atualizar o empresa!');
+        }
         return ApiResponseClass::sendResponse(new EmpresaResource($empresa), '');
     }
 

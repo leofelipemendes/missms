@@ -3,7 +3,6 @@
 namespace App\Repositories;
 
 use App\Interfaces\ModuloRepositoryInterface;
-use App\Models\Empresa;
 use App\Models\Modulo;
 
 class ModuloRepository implements ModuloRepositoryInterface
@@ -27,10 +26,5 @@ class ModuloRepository implements ModuloRepositoryInterface
     {
         $modulo = $this->find($id);
         return $modulo->update($data);
-    }
-
-    public function delete($id): int
-    {
-        return Empresa::destroy($id);
     }
 }
